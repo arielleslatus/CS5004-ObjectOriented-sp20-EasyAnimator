@@ -90,7 +90,7 @@ public final class EasyAnimator {
     }
 
     assert in_file != null;
-    File f = new File("toh-3.txt");
+    File f = new File("big-bang-big-crunch.txt");
     FileReader fr = new FileReader(f);
     Animator model = AnimationReader.parseFile(fr,  new AnimationBuilderImpl());
     

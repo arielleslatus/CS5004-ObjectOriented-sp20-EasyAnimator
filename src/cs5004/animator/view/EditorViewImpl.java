@@ -27,10 +27,11 @@ public class EditorViewImpl extends JFrame implements EditorView, ActionListener
     this.mainPanel = vis.getPanel();
     this.mainPanel.setLayout(new BorderLayout());
 
+
+
     JPanel remotePanel = new JPanel();
     remotePanel.setPreferredSize(new Dimension(this.mainPanel.getWidth(), 40));
     remotePanel.setBackground(new Color(255, 255, 255));
-
     this.start = new JButton("Start");
     this.start.setActionCommand("Start");
     this.start.addActionListener(this);
@@ -71,8 +72,21 @@ public class EditorViewImpl extends JFrame implements EditorView, ActionListener
     this.disableLoop.addActionListener(this);
     remotePanel.add(this.disableLoop);
 
-    this.mainPanel.add(remotePanel, BorderLayout.PAGE_END);
+    /*GridBagConstraints constraints = new GridBagConstraints();
+    constraints.gridx = 0;
+    constraints.gridy = 0;
+    constraints.fill = GridBagConstraints.SOUTH;
+    constraints.anchor = GridBagConstraints.SOUTH;*/
 
+    //constraints2.fill = GridBagConstraints.BOTH;
+    //constraints2.weightx = 0;
+    //constraints2.weighty = 0;
+    //this.mainPanel.add(Box.createGlue(), constraints2);
+
+    //this.mainPanel.add(remotePanel, constraints);
+    //this.add(remotePanel, constraints);
+
+    this.mainPanel.add(remotePanel, BorderLayout.BEFORE_FIRST_LINE);
 
   }
 
