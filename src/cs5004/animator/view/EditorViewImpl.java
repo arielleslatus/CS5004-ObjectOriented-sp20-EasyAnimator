@@ -12,7 +12,6 @@ import cs5004.animator.model.Animator;
 public class EditorViewImpl extends JFrame implements EditorView, ActionListener {
   private VisualView vis;
   private Panel mainPanel;
-  //private JPanel buttonPanel;
   private JButton start;
   private JButton pause;
   private JButton resume;
