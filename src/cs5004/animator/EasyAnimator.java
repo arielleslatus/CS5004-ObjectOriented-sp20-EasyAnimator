@@ -11,6 +11,8 @@ import javax.swing.Timer;
 import cs5004.animator.model.AnimationBuilderImpl;
 import cs5004.animator.model.AnimationReader;
 import cs5004.animator.model.Animator;
+import cs5004.animator.view.EditorView;
+import cs5004.animator.view.EditorViewImpl;
 import cs5004.animator.view.SVGAnimation;
 import cs5004.animator.view.TextDescription;
 import cs5004.animator.view.TickActionListener;
@@ -36,8 +38,8 @@ public final class EasyAnimator {
     String out_file = null;
     String view_type = "text";
     String[] commands = {"-in", "-view", "-out", "-speed"};
-    String[] view_types = {"text", "visual", "svg"};
-    int anim_speed = 1;
+    String[] view_types = {"text", "visual", "svg", "playback"};
+    int anim_speed = 50;
     if (args.length <= 1) {
       JOptionPane.showMessageDialog(null, "Invalid input.",
               "Error", JOptionPane.ERROR_MESSAGE);
@@ -88,7 +90,7 @@ public final class EasyAnimator {
     }
 
     assert in_file != null;
-    File f = new File(in_file);
+    File f = new File("toh-3.txt");
     FileReader fr = new FileReader(f);
     Animator model = AnimationReader.parseFile(fr,  new AnimationBuilderImpl());
     
@@ -110,6 +112,14 @@ public final class EasyAnimator {
       case "visual": {
         v = new VisualAnimation(model);
         TickActionListener myListener = new TickActionListener((VisualView) v, model);
+        Timer time = new Timer((int) (500.0 / anim_speed), myListener);
+        time.start();
+        break;
+      }
+      case "playback": {
+        v = new EditorViewImpl(new VisualAnimation(model));
+        TickActionListener myListener =
+                new TickActionListener(((EditorViewImpl) v).getVisualView(), model);
         Timer time = new Timer((int) (500.0 / anim_speed), myListener);
         time.start();
         break;

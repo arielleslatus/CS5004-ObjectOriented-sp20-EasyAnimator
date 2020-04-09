@@ -17,4 +17,6 @@ public interface EditorView extends View {
   void increaseSpeed();
 
   void decreaseSpeed();
+
+  VisualView getVisualView();
 }
