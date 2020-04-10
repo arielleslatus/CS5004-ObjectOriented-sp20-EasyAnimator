@@ -1,4 +1,4 @@
-package cs5004.animator.view;
+package cs5004.animator.controller;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;

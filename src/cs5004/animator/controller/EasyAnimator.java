@@ -1,4 +1,4 @@
-package cs5004.animator;
+package cs5004.animator.controller;
 
 import java.io.File;
 import java.io.FileReader;
@@ -11,11 +11,9 @@ import javax.swing.Timer;
 import cs5004.animator.model.AnimationBuilderImpl;
 import cs5004.animator.model.AnimationReader;
 import cs5004.animator.model.Animator;
-import cs5004.animator.view.EditorView;
 import cs5004.animator.view.EditorViewImpl;
 import cs5004.animator.view.SVGAnimation;
 import cs5004.animator.view.TextDescription;
-import cs5004.animator.view.TickActionListener;
 import cs5004.animator.view.View;
 import cs5004.animator.view.VisualAnimation;
 import cs5004.animator.view.VisualView;
