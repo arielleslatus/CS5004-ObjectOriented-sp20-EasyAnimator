@@ -30,11 +30,15 @@ public class TickActionListener implements ActionListener {
     v.setFrame(a.getShapesAtTick(0));
   }
 
+  protected void setCurrentTick(int newTick) {
+    this.currentTick = newTick;
+  }
+
   /**
    * Determines if the Animation has ended.
    * @return an int
    */
-  public int end()  {
+  protected int end()  {
     if (a.getShapesAtTick(currentTick).isEmpty()) {
       return 1;
     }

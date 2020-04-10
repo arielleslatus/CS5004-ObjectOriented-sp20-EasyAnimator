@@ -18,7 +18,7 @@ public interface Animator {
    * @throws IllegalArgumentException if the screen's proposed width or height are less than or
    *     equal to zero
    */
-  void setBounds(Point position, int width, int height);
+/*  void setBounds(Point position, int width, int height);*/
 
   /**
    * Adds a Shape object to the Animator.
@@ -27,8 +27,8 @@ public interface Animator {
    * @throws IllegalArgumentException if the position of the shape is outside the bounds of the
    *     Animator's screen, if the key is null or empty, if the key already exists, or if the
    *     shape is null
-   */
-  void addShape(Shape s, String key) throws IllegalArgumentException;
+   *//*
+  void addShape(Shape s, String key) throws IllegalArgumentException;*/
 
   /**
    * Removes a Shape object from the Animator.
@@ -36,7 +36,7 @@ public interface Animator {
    * @throws IllegalArgumentException if String passed in is empty or null
    * @throws NoSuchElementException if the element attempting to be removed does not exist
    */
-  void removeShape(String id) throws IllegalArgumentException, NoSuchElementException;
+  /*void removeShape(String id) throws IllegalArgumentException, NoSuchElementException;*/
 
   /**
    * Returns the ShapeWKey object associated with the input String.
@@ -57,7 +57,7 @@ public interface Animator {
    * @throws IllegalArgumentException if s is null, newColor is null, or start or end
    *     have invalid values
    */
-  void changeColor(ShapeWKey s, Color newColor, int start, int end);
+  /*void changeColor(ShapeWKey s, Color newColor, int start, int end);*/
 
 
   /**
@@ -69,8 +69,8 @@ public interface Animator {
    * @param end an int
    * @throws IllegalArgumentException if s is null, or start or end have invalid values
    */
-  void changeSize(ShapeWKey s, int newV, int newH,
-                         int start, int end);
+  /*void changeSize(ShapeWKey s, int newV, int newH,
+                         int start, int end);*/
 
 
   /**
@@ -82,7 +82,7 @@ public interface Animator {
    * @throws IllegalArgumentException if s is null, axis is null, or start or end have invalid
    *     values
    */
-  void changePosition(ShapeWKey s, Point axis, int start, int end);
+  /*void changePosition(ShapeWKey s, Point axis, int start, int end);*/
 
   /**
    * Sets the background as a Rectangle with the same dimensions of the screen, of the desired
@@ -90,7 +90,7 @@ public interface Animator {
    * @param c a Color
    * @throws IllegalArgumentException if c is null
    */
-  void setBackground(Color c);
+ /* void setBackground(Color c);*/
 
   /**
    * Returns the width of the Animator's screen.
@@ -105,7 +105,7 @@ public interface Animator {
   int getScreenHeight();
 
 
-  void addOriginal(ShapeWKey s);
+  /*void addOriginal(ShapeWKey s);*/
 
   List<ShapeWKey> getOriginals();
 
@@ -133,6 +133,6 @@ public interface Animator {
 
   int getMaxTick();
 
-  void setMaxTick(int tick);
+  /**/void setMaxTick(int tick);
 
 }

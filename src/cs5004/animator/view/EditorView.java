@@ -1,6 +1,10 @@
 package cs5004.animator.view;
 
+import java.awt.event.ActionListener;
+
 public interface EditorView extends View {
+
+  void setButtonListeners(ActionListener listener);
 
   void start();
 
