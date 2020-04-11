@@ -86,7 +86,7 @@ public class EditorViewImpl extends JFrame implements EditorView, ActionListener
     //this.mainPanel.add(remotePanel, constraints);
     //this.add(remotePanel, constraints);
 
-    this.mainPanel.add(remotePanel, BorderLayout.BEFORE_FIRST_LINE);
+    this.mainPanel.add(remotePanel, BorderLayout.BEFORE_FIRST_LINE);;
 
   }
 
@@ -103,46 +103,6 @@ public class EditorViewImpl extends JFrame implements EditorView, ActionListener
   }
 
 
-  @Override
-  public void start() {
-
-
-  }
-
-  @Override
-  public void pause() {
-
-  }
-
-  @Override
-  public void resume() {
-
-  }
-
-  @Override
-  public void restart() {
-
-  }
-
-  @Override
-  public void enableLooping() {
-
-  }
-
-  @Override
-  public void disableLooping() {
-
-  }
-
-  @Override
-  public void increaseSpeed() {
-
-  }
-
-  @Override
-  public void decreaseSpeed() {
-
-  }
 
   @Override
   public VisualView getVisualView() {

@@ -26,8 +26,8 @@ public class AnimatorImpl implements Animator {
     this.originalShapes = new ArrayList<ShapeWKey>();
   }
 
-
-  protected void setBounds(Point position, int width, int height) {
+  @Override
+  public void setBounds(Point position, int width, int height) {
     this.position = position;
     this.screenWidth = width;
     this.screenHeight = height;
@@ -43,8 +43,8 @@ public class AnimatorImpl implements Animator {
     return this.originalShapes;
   }
 
-
-  protected void addShape(Shape s, String key) throws IllegalArgumentException {
+  @Override
+  public void addShape(Shape s, String key) throws IllegalArgumentException {
     if (keyExists(key)) {
       throw new IllegalArgumentException("id already exists.");
     }
@@ -67,7 +67,8 @@ public class AnimatorImpl implements Animator {
     return false;
   }
 
-  protected void removeShape(String id)
+  @Override
+  public void removeShape(String id)
           throws IllegalArgumentException, NoSuchElementException {
     if (id == null  || id.isEmpty()) {
       throw new IllegalArgumentException("id can't be null or empty.");
@@ -101,7 +102,8 @@ public class AnimatorImpl implements Animator {
     throw new NoSuchElementException("shape doesn't exist!");
   }
 
-  protected void changeColor(ShapeWKey s, Color newColor, int start, int end)
+  @Override
+  public void changeColor(ShapeWKey s, Color newColor, int start, int end)
           throws IllegalArgumentException {
     if (s == null || newColor == null) {
       throw new IllegalArgumentException("parameters can't be null.");
@@ -112,7 +114,8 @@ public class AnimatorImpl implements Animator {
 
   }
 
-  protected void changeSize(ShapeWKey s, int newV, int newH,
+  @Override
+  public void changeSize(ShapeWKey s, int newV, int newH,
                          int start, int end)
           throws IllegalArgumentException {
     if (s == null) {
@@ -125,7 +128,8 @@ public class AnimatorImpl implements Animator {
             newV, newH));
   }
 
-  protected void changePosition(ShapeWKey s, Point axis, int start, int end)
+  @Override
+  public void changePosition(ShapeWKey s, Point axis, int start, int end)
           throws IllegalArgumentException {
     if (s == null || axis == null) {
       throw new IllegalArgumentException("parameters can't be null.");
@@ -135,8 +139,8 @@ public class AnimatorImpl implements Animator {
     this.events.add(new Move(s, start, end, oldAxis, axis));
   }
 
-
-  protected void setBackground(Color c) {
+  @Override
+  public void setBackground(Color c) {
     if (c == null) {
       throw new IllegalArgumentException("parameters can't be null.");
     }

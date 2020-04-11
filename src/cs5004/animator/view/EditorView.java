@@ -6,7 +6,7 @@ public interface EditorView extends View {
 
   void setButtonListeners(ActionListener listener);
 
-  void start();
+/*  void start();
 
   void pause();
 
@@ -20,7 +20,7 @@ public interface EditorView extends View {
 
   void increaseSpeed();
 
-  void decreaseSpeed();
+  void decreaseSpeed();*/
 
   VisualView getVisualView();
 }
