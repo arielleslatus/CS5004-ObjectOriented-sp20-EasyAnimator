@@ -3,14 +3,17 @@ package cs5004.animator.view;
 import java.awt.Dimension;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 
-
-public class EditorViewImpl extends JFrame implements EditorView, ActionListener {
+/**
+ * The EditorViewImpl class implements the functionality of the EditorView interface, extended by
+ * the View interface. It takes a VisualView as a parameter, adds a JPanel to the existing Panel
+ * and JButtons to that panel. ActionListeners are added to the JButtons.
+ */
+public class EditorViewImpl extends JFrame implements EditorView {
   private VisualView vis;
   private JButton start;
   private JButton pause;
@@ -21,6 +24,11 @@ public class EditorViewImpl extends JFrame implements EditorView, ActionListener
   private JButton enableLoop;
   private JButton disableLoop;
 
+  /**
+   * Constructs an EditorViewImpl by taking a VisualView as a parameter and adding interactive
+   * functionality to it.
+   * @param vis a VisualView
+   */
   public EditorViewImpl(VisualView vis) {
     this.vis = vis;
     Panel mainPanel = vis.getPanel();
@@ -77,15 +85,9 @@ public class EditorViewImpl extends JFrame implements EditorView, ActionListener
     this.disableLoop.addActionListener(listener);
   }
 
-
-
   @Override
   public VisualView getVisualView() {
     return this.vis;
   }
 
-  @Override
-  public void actionPerformed(ActionEvent actionEvent) {
-
-  }
 }

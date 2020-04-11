@@ -10,7 +10,7 @@ import cs5004.animator.model.Shape;
 
 
 /**
- * This class implements the functionality of the VisualView interface, extended byt the View
+ * This class implements the functionality of the VisualView interface, extended by the View
  * interface. It has a Panel with which it sets the size and layout of the frame.
  */
 public class VisualAnimation extends JFrame implements VisualView {
