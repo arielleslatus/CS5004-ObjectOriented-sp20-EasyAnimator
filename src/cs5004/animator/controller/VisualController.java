@@ -10,7 +10,9 @@ import cs5004.animator.view.View;
 import cs5004.animator.view.VisualView;
 
 /**
-
+ * The VisualController implements the AnimationController for the VisualAnimation view. It also
+ * implements ActionListener and creates a Timer to continually increase the value for currentTick
+ * until it reaches the maxTicks.
  */
 public class VisualController implements ActionListener, AnimationController {
   private int currentTick;

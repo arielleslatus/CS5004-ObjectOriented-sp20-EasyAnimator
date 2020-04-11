@@ -18,12 +18,12 @@ import cs5004.animator.view.VisualAnimation;
 import cs5004.animator.view.VisualView;
 
 /**
- * Runs the Controller for Animator.
+ * Interprets the terminal commands, creates a model, and view to pass into a controller.
  */
 public final class EasyAnimator {
 
   /**
-   * Controller for Animator.
+   * The driver for the Animator program.
    * @param args a String[]
    * @throws IOException if improper input is received
    */

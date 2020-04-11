@@ -9,6 +9,12 @@ import cs5004.animator.model.Animator;
 import cs5004.animator.view.EditorView;
 import cs5004.animator.view.View;
 
+/**
+ * The EditorController implements the AnimationController for the EditorView. It also
+ * implements ActionListener and creates a Timer to continually increase the value for currentTick
+ * until it reaches the maxTicks. This class listens for ActionEvents and behaves appropriately
+ * when buttons on the view are clicked.
+ */
 public class EditorController implements ActionListener, AnimationController {
   private Animator model;
   private EditorView view;
@@ -17,6 +23,13 @@ public class EditorController implements ActionListener, AnimationController {
   int speed;
   boolean looping;
 
+  /**
+   * Constructs an EditorController by taking a model, view, and speed as parameters. It
+   * initializes looping to false and the currentTick to zero.
+   * @param model an Animator
+   * @param view an EditorView
+   * @param anim_speed an int
+   */
   public EditorController(Animator model, EditorView view, int anim_speed) {
     this.model = model;
     this.view = view;
@@ -27,11 +40,6 @@ public class EditorController implements ActionListener, AnimationController {
     this.view.setButtonListeners(this);
     this.looping = false;
   }
-
-  protected void setCurrentTick(int newTick) {
-    this.currentTick = newTick;
-  }
-
 
   /**
    * Upon receiving an ActionEvent, this method tells the VisualView to set up the Shapes
