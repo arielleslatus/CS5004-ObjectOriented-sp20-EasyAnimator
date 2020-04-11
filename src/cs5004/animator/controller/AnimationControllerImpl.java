@@ -23,11 +23,11 @@ public class AnimationControllerImpl implements ActionListener, AnimationControl
     this.view = view;
     this.currentTick = 0;
     this.speed = anim_speed;
-    time = new Timer((int) (500.0 / this.speed), this);
+    this.time = new Timer((int) (500.0 / this.speed), this);
     //time.start();
     this.view.getVisualView().setFrame(model.getShapesAtTick(0));
     this.view.setButtonListeners(this);
-    looping = false;
+    this.looping = false;
   }
 
   protected void setCurrentTick(int newTick) {
@@ -40,7 +40,7 @@ public class AnimationControllerImpl implements ActionListener, AnimationControl
    * @return an int
    */
   protected int end()  {
-    if (model.getShapesAtTick(currentTick).isEmpty()) {
+    if (this.model.getShapesAtTick(this.currentTick).isEmpty()) {
       return 1;
     }
     else {
@@ -59,58 +59,69 @@ public class AnimationControllerImpl implements ActionListener, AnimationControl
     if (e.getActionCommand() != null) {
       switch (e.getActionCommand()) {
         case "Start":
-          if (currentTick == 0) {
-            time.start();
+          if (this.currentTick == 0) {
+            this.time.start();
           }
           break;
         case "Restart":
           this.currentTick = 0;
-          view.getVisualView().setFrame(model.getShapesAtTick(0));
-          time.start();
+          this.view.getVisualView().setFrame(this.model.getShapesAtTick(0));
+          this.time.start();
           break;
         case "Pause":
-          time.stop();
+          this.time.stop();
           break;
         case "Resume":
-          if (currentTick > 0) {
-            view.getVisualView().setFrame(model.getShapesAtTick(currentTick));
-            time.start();
+          if (this.currentTick > 0) {
+            this.view.getVisualView().setFrame(this.model.getShapesAtTick(this.currentTick));
+            this.time.start();
           }
           break;
         case "Increase Speed":
-          time.stop();
+          this.time.stop();
           this.speed *= 2;
-          time = new Timer((int) (500.0 / speed), this);
-          time.start();
+          this.time = new Timer((int) (500.0 / this.speed), this);
+          this.time.start();
           break;
 
         case "Decrease Speed":
-          time.stop();
+          this.time.stop();
           float currSpeed = (float) (this.speed / 2);
           this.speed = (int) currSpeed;
-          time = new Timer((int) (500.0 / speed), this);
-          time.start();
+          this.time = new Timer((int) (500.0 / this.speed), this);
+          this.time.start();
           break;
 
         case "Enable Looping":
-          looping = true;
+          this.looping = true;
           break;
 
         case "Disable Looping":
-          looping = false;
+          this.looping = false;
           break;
 
       }
     }
 
-    if (currentTick == model.getMaxTick()) {
-      ((Timer) e.getSource()).stop();
-      return;
+    if (this.currentTick == this.model.getMaxTick()) {
+      if (this.looping) {
+        if (this.currentTick == this.model.getMaxTick()) {
+          this.currentTick = 0;
+          this.view.getVisualView().setFrame(this.model.getShapesAtTick(0));
+          this.time.start();
+        }
+      } else {
+        ((Timer) e.getSource()).stop();
+        return;
+      }
     }
-    view.getVisualView().setFrame(model.getShapesAtTick(currentTick));
-    view.getVisualView().refresh();
-    currentTick++;
+    this.view.getVisualView().setFrame(this.model.getShapesAtTick(this.currentTick));
+    this.view.getVisualView().refresh();
+    this.currentTick++;
   }
+
+
+
 
   /**
    * Returns the View.
