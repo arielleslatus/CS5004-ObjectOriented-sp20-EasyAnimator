@@ -3,13 +3,13 @@ package cs5004.animator.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.Timer;
+import javax.swing.*;
 
 import cs5004.animator.model.Animator;
 import cs5004.animator.view.EditorView;
 import cs5004.animator.view.View;
 
-public class AnimationControllerImpl implements ActionListener, AnimationController {
+public class EditorController implements ActionListener, AnimationController {
   private Animator model;
   private EditorView view;
   int currentTick;
@@ -17,7 +17,7 @@ public class AnimationControllerImpl implements ActionListener, AnimationControl
   int speed;
   boolean looping;
 
-  public AnimationControllerImpl(Animator model, EditorView view, int anim_speed) {
+  public EditorController(Animator model, EditorView view, int anim_speed) {
     this.model = model;
     this.view = view;
     this.currentTick = 0;
@@ -34,19 +34,6 @@ public class AnimationControllerImpl implements ActionListener, AnimationControl
 
 
   /**
-   * Determines if the Animation has ended.
-   * @return an int
-   */
-  protected int end()  {
-    if (this.model.getShapesAtTick(this.currentTick).isEmpty()) {
-      return 1;
-    }
-    else {
-      return 0;
-    }
-  }
-
-  /**
    * Upon receiving an ActionEvent, this method tells the VisualView to set up the Shapes
    * required for the current frame, and repaint the image. Then it increases the current
    * ticks by one.
@@ -59,6 +46,9 @@ public class AnimationControllerImpl implements ActionListener, AnimationControl
         case "Start":
           if (this.currentTick == 0) {
             this.time.start();
+          }
+          else {
+            return;
           }
           break;
         case "Restart":
@@ -77,15 +67,20 @@ public class AnimationControllerImpl implements ActionListener, AnimationControl
           break;
         case "Increase Speed":
           this.time.stop();
-          this.speed *= 2;
+          this.speed += 10;
           this.time = new Timer((int) (500.0 / this.speed), this);
           this.time.start();
           break;
 
         case "Decrease Speed":
-          this.time.stop();
-          float currSpeed = (float) (this.speed / 2);
-          this.speed = (int) currSpeed;
+          this.time.stop();;
+          if (this.speed > 10) {
+            this.speed -= 10;
+          }
+          else  {
+            JOptionPane.showMessageDialog(null,
+                    "Could not decrease speed.", "Error", JOptionPane.ERROR_MESSAGE);
+          }
           this.time = new Timer((int) (500.0 / this.speed), this);
           this.time.start();
           break;
@@ -117,9 +112,6 @@ public class AnimationControllerImpl implements ActionListener, AnimationControl
     this.view.getVisualView().refresh();
     this.currentTick++;
   }
-
-
-
 
   /**
    * Returns the View.
