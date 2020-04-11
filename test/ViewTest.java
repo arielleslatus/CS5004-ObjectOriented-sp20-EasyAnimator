@@ -18,7 +18,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * Tests the Animator.
  */
-public class AnimatorTest {
+public class ViewTest {
 
   @Test
   public void testTextView4() throws IOException {

@@ -10,8 +10,15 @@ public class Oval extends AbstractShape {
 
   /**
    * Constructs an oval.
+   * @param point
+   * @param color
+   * @param i
+   * @param i1
+   * @param i2
+   * @param i3
+   * @param i4
    */
-  public Oval() {
+  public Oval(Point point, Color color, int i, int i1, int i2, int i3, int i4) {
     // Constructs an Oval without parameters
   }
 

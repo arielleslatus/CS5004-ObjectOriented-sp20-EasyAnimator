@@ -8,7 +8,6 @@ import javax.swing.Timer;
 import cs5004.animator.model.Animator;
 import cs5004.animator.view.EditorView;
 import cs5004.animator.view.View;
-import cs5004.animator.view.VisualView;
 
 public class AnimationControllerImpl implements ActionListener, AnimationController {
   private Animator model;
@@ -24,7 +23,6 @@ public class AnimationControllerImpl implements ActionListener, AnimationControl
     this.currentTick = 0;
     this.speed = anim_speed;
     this.time = new Timer((int) (500.0 / this.speed), this);
-    //time.start();
     this.view.getVisualView().setFrame(model.getShapesAtTick(0));
     this.view.setButtonListeners(this);
     this.looping = false;

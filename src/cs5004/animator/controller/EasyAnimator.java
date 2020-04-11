@@ -17,7 +17,6 @@ import cs5004.animator.view.SVGAnimation;
 import cs5004.animator.view.TextDescription;
 import cs5004.animator.view.View;
 import cs5004.animator.view.VisualAnimation;
-import cs5004.animator.view.VisualView;
 
 /**
  * Runs the Controller for Animator.

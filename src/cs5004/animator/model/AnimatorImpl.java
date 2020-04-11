@@ -145,7 +145,7 @@ public class AnimatorImpl implements Animator {
       throw new IllegalArgumentException("parameters can't be null.");
     }
     Point p = new Point(0, 0);
-    Rectangle background = new Rectangle();
+    Rectangle background = new Rectangle(new Point(10, 10), new Color(1, 0, 0), 5, 10, 1, 0, 10);
     background.setValues(p, c, this.screenHeight, this.screenWidth);
     ShapeWKey toAdd = new ShapeWKey(background, "bg");
     this.shapes.add(toAdd);
