@@ -10,6 +10,7 @@ import cs5004.animator.view.NonVisualView;
  * SVGAnimation view.
  */
 public class TextController implements AnimationController {
+  private Appendable app;
 
   /**
    * Constructs a TextController, which creates a PrintStream that writes to an Appendable.
@@ -17,11 +18,20 @@ public class TextController implements AnimationController {
    * @throws IOException if an error occurs while appending to the appendable
    */
   public TextController(NonVisualView view) throws IOException {
+    this.app = view.getAppendable();
     PrintStream console = System.out;
-    System.setOut((PrintStream) view.getAppendable());
+    System.setOut((PrintStream) this.app);
     view.setOutput();
-    System.out.println(view.getAppendable());
+    System.out.println(this.app);
     System.setOut(console);
-    System.out.println(view.getAppendable());
+    System.out.println(this.app);
+  }
+
+  /**
+   * Getter for the view's appendable object
+   * @return an Appendable
+   */
+  public Appendable getApp() {
+    return this.app;
   }
 }
