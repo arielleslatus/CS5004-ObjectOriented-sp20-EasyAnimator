@@ -9,7 +9,10 @@ import javax.swing.JScrollPane;
 import cs5004.animator.model.AnimationBuilder;
 import cs5004.animator.model.Animator;
 import cs5004.animator.model.Color;
+import cs5004.animator.model.Event;
+import cs5004.animator.model.Oval;
 import cs5004.animator.model.Point;
+import cs5004.animator.model.Rectangle;
 import cs5004.animator.model.Shape;
 import cs5004.animator.model.ShapeWKey;
 
@@ -57,6 +60,21 @@ public class VisualAnimation extends JFrame implements VisualView {
   @Override
   public Panel getPanel() {
     return this.p;
+  }
+
+  @Override
+  public void addShape(String name, String type) {
+    if (type.equals("rectangle")) {
+      this.model.addShape(new Rectangle(), name);
+    }
+    else if (type.equals("ellipse")) {
+      this.model.addShape(new Oval(), name);
+    }
+  }
+
+  @Override
+  public void removeShape(String name) {
+    this.model.removeShape(name);
   }
 
   @Override

@@ -78,11 +78,13 @@ public class AnimatorImpl implements Animator {
       for (i = 0; i < this.shapes.size(); i++) {
         if (this.shapes.get(i).getKey().equals(id)) {
           this.shapes.remove(i);
+          this.events.removeIf(e -> e.getS().getKey().equals(id));
           return;
         }
       }
     }
     throw new NoSuchElementException("shape doesn't exist!");
+
   }
 
   @Override
@@ -145,7 +147,7 @@ public class AnimatorImpl implements Animator {
       throw new IllegalArgumentException("parameters can't be null.");
     }
     Point p = new Point(0, 0);
-    Rectangle background = new Rectangle(new Point(10, 10), new Color(1, 0, 0), 5, 10, 1, 0, 10);
+    Rectangle background = new Rectangle();
     background.setValues(p, c, this.screenHeight, this.screenWidth);
     ShapeWKey toAdd = new ShapeWKey(background, "bg");
     this.shapes.add(toAdd);
