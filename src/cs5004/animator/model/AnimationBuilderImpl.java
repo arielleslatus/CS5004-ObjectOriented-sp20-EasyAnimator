@@ -36,10 +36,10 @@ public class AnimationBuilderImpl implements AnimationBuilder<Animator> {
   @Override
   public AnimationBuilder<Animator> declareShape(String name, String type) {
     if (type.equals("rectangle")) {
-      this.model.addShape(new Rectangle(new Point(10, 10), new Color(1, 0, 0), 5, 10, 1, 0, 10), name);
+      this.model.addShape(new Rectangle(), name);
     }
     else if (type.equals("ellipse")) {
-      this.model.addShape(new Oval(new Point(5, 20), new Color(0, 1, 0), 8, 4, 2, 0, 10), name);
+      this.model.addShape(new Oval(), name);
     }
 
     return this;

@@ -90,4 +90,6 @@ public class EditorViewImpl extends JFrame implements EditorView {
     return this.vis;
   }
 
+
+
 }

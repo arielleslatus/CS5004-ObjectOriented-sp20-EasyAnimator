@@ -11,15 +11,8 @@ public class Rectangle extends AbstractShape {
 
   /**
    * Constructs a rectangle.
-   * @param point
-   * @param color
-   * @param i
-   * @param i1
-   * @param i2
-   * @param i3
-   * @param i4
    */
-  public Rectangle(Point point, Color color, int i, int i1, int i2, int i3, int i4) {
+  public Rectangle() {
     //Constructs a Rectangle without parameters
   }
 
