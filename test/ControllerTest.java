@@ -559,17 +559,6 @@ public class ControllerTest {
             "</svg>", controller.getApp().toString());
   }
 
-  @Test
-  public void testTextVisualControllerAddShape() throws IOException {
-    File f = new File("toh-3.txt");
-    FileReader fr = new FileReader(f);
-    Animator model = AnimationReader.parseFile(fr, new AnimationBuilderImpl());
-    VisualView v = new VisualAnimation(model);
-    /*v.addShape("newRectangle", "rectangle");
-    v.addMotion("newRectangle", 2, 4, 5, 7, 7, 100, 0, 0,
-            8, 10, 20, 7, 7, 100, 0, 0);*/
-    AnimationController controller = new VisualController(model, v, 10);
-  }
 
 
 }
