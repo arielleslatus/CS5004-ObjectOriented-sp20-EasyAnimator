@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import cs5004.animator.model.AnimationBuilderImpl;
 import cs5004.animator.model.AnimationReader;
 import cs5004.animator.model.Animator;
+import cs5004.animator.view.EditorView;
 import cs5004.animator.view.EditorViewImpl;
 import cs5004.animator.view.NonVisualView;
 import cs5004.animator.view.SVGAnimation;
@@ -100,12 +101,25 @@ public final class EasyAnimator {
       }
       case "visual": {
         v = new VisualAnimation(model);
+        ((VisualView) v).addShape("square", "rectangle");
+        ((VisualView) v).addMotion("square", 1, 0, 0, 100, 100,
+                250, 0, 0, model.getMaxTick(), 900, 900, 10,
+                10, 250, 0, 0);
+        /*((VisualView) v).saveTXT("test123.txt");*/
+        ((VisualView) v).saveSVG("test321.svg");
         AnimationController controller =
                 new VisualController(model, (VisualView) v, anim_speed);
         break;
       }
       case "playback": {
         v = new EditorViewImpl(new VisualAnimation(model));
+        ((EditorView) v).addShape("square", "rectangle");
+        ((EditorView) v).addMotion("square", 1, 0, 0, 100, 100,
+                250, 0, 0, model.getMaxTick(), 900, 900, 10,
+                10, 250, 0, 0);
+        /*((EditorView) v).removeShape("square");*/
+        /*((EditorView) v).saveTXT("test456.txt");*/
+        ((EditorView) v).saveSVG("test654.svg");
         AnimationController controller =
                 new EditorController(model,
                         (EditorViewImpl) v, anim_speed);

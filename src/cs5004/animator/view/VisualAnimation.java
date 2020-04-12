@@ -2,6 +2,9 @@ package cs5004.animator.view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintStream;
 import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
@@ -110,6 +113,26 @@ public class VisualAnimation extends JFrame implements VisualView {
       this.model.addOriginal(toAdd);
     }
 
+  }
+
+  @Override
+  public void saveTXT(String output) throws IOException {
+    Appendable app = new PrintStream(output);
+    NonVisualView toOutput = new TextDescription(this.model, app);
+    System.setOut((PrintStream) app);
+    toOutput.setOutput();
+    System.out.println(app);
+    /*System.setOut(console);
+    System.out.println(app);*/
+  }
+
+  @Override
+  public void saveSVG(String output) throws IOException {
+    Appendable app = new PrintStream(output);
+    NonVisualView toOutput = new SVGAnimation(this.model, app);
+    System.setOut((PrintStream) app);
+    toOutput.setOutput();
+    System.out.println(app);
   }
 
 

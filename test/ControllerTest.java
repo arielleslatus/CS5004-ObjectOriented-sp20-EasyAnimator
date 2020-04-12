@@ -6,13 +6,17 @@ import java.io.IOException;
 
 import cs5004.animator.controller.AnimationController;
 import cs5004.animator.controller.TextController;
+import cs5004.animator.controller.VisualController;
 import cs5004.animator.model.AnimationBuilderImpl;
 import cs5004.animator.model.AnimationReader;
 import cs5004.animator.model.Animator;
+import cs5004.animator.model.Shape;
 import cs5004.animator.view.NonVisualView;
 import cs5004.animator.view.SVGAnimation;
 import cs5004.animator.view.TextDescription;
 import cs5004.animator.view.View;
+import cs5004.animator.view.VisualAnimation;
+import cs5004.animator.view.VisualView;
 
 import static org.junit.Assert.assertEquals;
 
@@ -555,6 +559,17 @@ public class ControllerTest {
             "</svg>", controller.getApp().toString());
   }
 
+  @Test
+  public void testTextVisualControllerAddShape() throws IOException {
+    File f = new File("toh-3.txt");
+    FileReader fr = new FileReader(f);
+    Animator model = AnimationReader.parseFile(fr, new AnimationBuilderImpl());
+    VisualView v = new VisualAnimation(model);
+    /*v.addShape("newRectangle", "rectangle");
+    v.addMotion("newRectangle", 2, 4, 5, 7, 7, 100, 0, 0,
+            8, 10, 20, 7, 7, 100, 0, 0);*/
+    AnimationController controller = new VisualController(model, v, 10);
+  }
 
 
 }

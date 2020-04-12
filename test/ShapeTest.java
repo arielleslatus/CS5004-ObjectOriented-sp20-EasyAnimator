@@ -35,10 +35,8 @@ public class ShapeTest {
     p5 = new Point(10, 20);
 
 
-    redRec = new Rectangle(new Point(10, 10), new Color(1, 0, 0),
-            5, 10, 1, 0, 10);
-    blueOval = new Oval(new Point(5, 20), new Color(0, 1, 0),
-            8, 4, 2, 0, 10);
+    redRec = new Rectangle();
+    blueOval = new Oval();
     red = new Color(1, 0, 0);
 
   }
@@ -130,17 +128,17 @@ public class ShapeTest {
 
   @Test (expected = IllegalArgumentException.class)
   public void testRecInvalidHeight() {
-    Rectangle test = new Rectangle(p1, red, -4, 12, 2, 0, 10);
+    Rectangle test = new Rectangle();
   }
 
   @Test (expected = IllegalArgumentException.class)
   public void testRecInvalidWidth() {
-    Rectangle test = new Rectangle(p1, red, 6, -3, 2, 0, 10);
+    Rectangle test = new Rectangle();
   }
 
   @Test (expected = IllegalArgumentException.class)
   public void testRecInvalidLayer() {
-    Rectangle test = new Rectangle(p1, red, 5, 5, -1, 10, 20);
+    Rectangle test = new Rectangle();
   }
 
   @Test

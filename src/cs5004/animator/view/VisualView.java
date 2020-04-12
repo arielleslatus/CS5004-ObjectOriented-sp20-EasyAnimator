@@ -1,6 +1,8 @@
 package cs5004.animator.view;
 
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 import cs5004.animator.model.Shape;
 
@@ -35,6 +37,9 @@ public interface VisualView extends View {
                  int r1, int g1, int b1, int t2, int x2, int y2, int w2,
                  int h2, int r2, int g2, int b2);
 
+  void saveTXT(String output) throws IOException;
+
+  void saveSVG(String output) throws IOException;
 
 
 

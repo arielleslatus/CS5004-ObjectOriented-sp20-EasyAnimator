@@ -34,12 +34,11 @@ public class ModelTest {
     blue = new Color(0, 1, 0);
     red = new Color(1, 0, 0);
     p = new Point(0, 0);
-    greenRec = new Rectangle(new Point(5, 10), new Color(0, 0, 1),
-            10, 20, 1, 0, 10);
-    redOval = new Oval(new Point(10, 10), red, 2, 3, 2, 0, 10);
-    blueRec1 = new Rectangle(p, blue, 100, 201, 1, 5, 15);
-    blueRec2 = new Rectangle(p, blue, 101, 200, 1, 10, 15);
-    blueRec3 = new Rectangle(p, blue, 100, 200, 0, 5, 8);
+    greenRec = new Rectangle();
+    redOval = new Oval();
+    blueRec1 = new Rectangle();
+    blueRec2 = new Rectangle();
+    blueRec3 = new Rectangle();
   }
 
   @Test
