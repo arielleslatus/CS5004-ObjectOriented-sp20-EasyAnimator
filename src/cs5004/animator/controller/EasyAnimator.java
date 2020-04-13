@@ -117,9 +117,6 @@ public final class EasyAnimator {
         ((EditorView) v).addMotion("square", 1, 0, 0, 100, 100,
                 250, 0, 0, model.getMaxTick(), 900, 900, 10,
                 10, 250, 0, 0);
-        /*((EditorView) v).removeShape("square");*/
-        /*((EditorView) v).saveTXT("test456.txt");*/
-        ((EditorView) v).saveSVG("test654.svg");
         AnimationController controller =
                 new EditorController(model,
                         (EditorViewImpl) v, anim_speed);

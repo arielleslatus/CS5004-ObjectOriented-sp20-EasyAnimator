@@ -2,6 +2,7 @@ package cs5004.animator.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.*;
 
@@ -100,6 +101,21 @@ public class EditorController implements ActionListener, AnimationController {
         case "Disable Looping":
           this.looping = false;
           break;
+
+        case "Save to TXT":
+          try {
+            this.view.saveTXT("Animator.txt");
+          } catch (IOException ex) {
+            ex.printStackTrace();
+          }
+          break;
+
+        case "Save to SVG":
+          try {
+            this.view.saveSVG("Animator.svg");
+          } catch (IOException ex) {
+            ex.printStackTrace();
+          }
 
       }
     }

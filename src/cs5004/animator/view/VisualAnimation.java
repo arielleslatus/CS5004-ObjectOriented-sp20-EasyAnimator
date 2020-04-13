@@ -40,7 +40,7 @@ public class VisualAnimation extends JFrame implements VisualView {
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.setLayout(new BorderLayout());
     this.p = new Panel(model);
-    this.p.setPreferredSize(new Dimension(900, 900));
+    this.p.setPreferredSize(new Dimension(1200, 900));
     this.add(p, BorderLayout.CENTER);
     JScrollPane scroll = new JScrollPane(this.p, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
             JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);

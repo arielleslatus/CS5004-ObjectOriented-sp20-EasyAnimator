@@ -25,6 +25,8 @@ public class EditorViewImpl extends JFrame implements EditorView {
   private JButton decSpeed;
   private JButton enableLoop;
   private JButton disableLoop;
+  private JButton saveTXT;
+  private JButton saveSVG;
 
   /**
    * Constructs an EditorViewImpl by taking a VisualView as a parameter and adding interactive
@@ -71,6 +73,14 @@ public class EditorViewImpl extends JFrame implements EditorView {
     this.disableLoop.setActionCommand("Disable Looping");
     remotePanel.add(this.disableLoop);
 
+    this.saveTXT = new JButton("Save to TXT");
+    this.saveTXT.setActionCommand("Save to TXT");
+    remotePanel.add(this.saveTXT);
+
+    this.saveSVG = new JButton("Save to SVG");
+    this.saveSVG.setActionCommand("Save to SVG");
+    remotePanel.add(this.saveSVG);
+
     mainPanel.add(remotePanel, BorderLayout.BEFORE_FIRST_LINE);;
 
   }
@@ -85,6 +95,8 @@ public class EditorViewImpl extends JFrame implements EditorView {
     this.decSpeed.addActionListener(listener);
     this.enableLoop.addActionListener(listener);
     this.disableLoop.addActionListener(listener);
+    this.saveTXT.addActionListener(listener);
+    this.saveSVG.addActionListener(listener);
   }
 
   @Override
