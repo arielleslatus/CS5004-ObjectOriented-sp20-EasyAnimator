@@ -6,4 +6,6 @@ Arielle Slatus, Sara Chojnacki
 
 Professors Keith Bagley and Clark Freifeld
 
+Northeastern University
+
 Spring 2020
